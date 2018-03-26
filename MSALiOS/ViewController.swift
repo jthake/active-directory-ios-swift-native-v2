@@ -91,8 +91,9 @@ class ViewController: UIViewController, UITextFieldDelegate, URLSessionDelegate 
                     self.getContentWithToken()
 
                 } else {
-                    self.loggingText.text = "Could not acquire token silently: \(error ?? "No error informarion" as! Error)"
-
+                    DispatchQueue.main.async {
+                        self.loggingText.text = "Could not acquire token silently: \(error ?? "No error informarion" as! Error)"
+                    }
                 }
             }
         }
